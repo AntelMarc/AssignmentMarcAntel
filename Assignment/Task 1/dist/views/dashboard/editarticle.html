@@ -1,0 +1,96 @@
+<h2 style="color:#bf2026;font-family: verdana;">View and Edit Article</h2></br>
+<div ng-show="!allowEdit">
+    <button class="btn btn-primary" ng-click="editArticle();">Edit Article</button>
+    <h2 style="text-align:center">{{articleSummaries[selected.value].Title}}<br><image src={{articleImage}} style="text-align:center"></image></h2>
+
+    <div style="text-align:center; width:70%;margin-left: 15%">{{articleSummaries[selected.value].Article}}</div>
+</div>
+<div ng-show="allowEdit">
+    <button class="btn btn-primary" ng-click="viewArticle();">View Article</button>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <h4 style="color:#bf2026;font-family: verdana;">Article Title:</h4></br>
+            <textarea class="form-control" rows="2" ng-model="articleSummaries[selected.value].Title"></textarea>
+        </div>
+        <div class="form-group col-md-4">
+            <h4 style="color:#bf2026;font-family: verdana;">Article Date:</h4></br>
+            <p>Current chosen date: {{articleSummaries[selected.value].ReadableDate}}</p>
+            <form name="dates" ng-submit="" novalidate="">
+                    <div class="datepicker" date-format="yyyy-MM-dd">
+                        Change date: <input ng-model="selectedDate" type="text"/>
+                    </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h4 style="color:#bf2026;font-family: verdana;">Article Summary Image:</h4></br>
+            <form id="upload-image-form" action="" method="post" enctype="multipart/form-data">
+                <div id="image-preview-div">
+                    <label>Selected image:</label>
+                    <br>
+                    <img id="preview-img" src={{summaryImage}} style="height:150px;width:auto;">
+                </div>
+                <div class="form-group">
+                    <input type="file" name="file" id="SummaryImageEdit" accept=".png, .jpg, .jpeg" ng-model="articleSummaries[selected.value].smallImageName">
+                </div>
+                <!--<button class="btn btn-lg btn-primary" id="upload-button" type="submit" disabled>Upload image</button>-->
+            </form></br>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <h4 style="color:#bf2026;font-family: verdana;">Article Summary:</h4></br>
+                <textarea class="form-control" rows="5" id="comment" ng-model="articleSummaries[selected.value].Summary"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h4 style="color:#bf2026;font-family: verdana;">Article Image:</h4></br>
+            <form action="" method="post" enctype="multipart/form-data">
+                <div>
+                    <label>Selected image:</label>
+                    <br>
+                    <img src={{articleImage}} style="height:150px;width:auto;">
+                    <br>
+                </div>
+                <div class="form-group">
+                    <input type="file" name="file" id="ArticleImageEdit" accept=".png, .jpg, .jpeg" ng-model="articleSummaries[selected.value].imageName">
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <h4 style="color:#bf2026;font-family: verdana;">Article Text:</h4></br>
+                <textarea class="form-control" rows="5" ng-model="articleSummaries[selected.value].Article"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h4 style="color:#bf2026;font-family: verdana;">Category:</h4></br>
+            <md-radio-group ng-model="articleSummaries[selected.value].Category" required>
+                <md-radio-button value="Africa Operations">Africa Operations</md-radio-button>
+                <md-radio-button value="Axxis">Axxis</md-radio-button>
+                <md-radio-button value="Blasting Sciences">Blasting Sciences</md-radio-button>
+                <md-radio-button value="Corporate Services">Corporate Services</md-radio-button>
+                <md-radio-button value="Customer News / Marketing">Customer News</md-radio-button>
+                <md-radio-button value="Global News">Global News</md-radio-button>
+                <md-radio-button value="HR News">HR News</md-radio-button>
+                <md-radio-button value="Head Office">Head Office</md-radio-button>
+                <md-radio-button value="Human Resources">Human Resources</md-radio-button>
+                <md-radio-button value="Marketing">Marketing</md-radio-button>
+                <md-radio-button value="News From Joe (MD)">News From Joe</md-radio-button>
+                <md-radio-button value="Omnia News">OmniaNews</md-radio-button>
+                <md-radio-button value="SHERQ">SHERQ</md-radio-button>
+                <md-radio-button value="Supply Chain">SupplyChain</md-radio-button>
+                <md-radio-button value="Technology News">TechnologyNews</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div class="col-md-4">
+            <h4 style="color:#bf2026;font-family: verdana;">Notifications:</h4></br>
+            Send Alert: <md-checkbox ng-model="articleSummaries[selected.value].Alert"></md-checkbox>
+        </div>
+    </div>
+    <button class="btn btn-primary" ng-click="push(articleSummaries[selected.value].Title, selectedDate, articleSummaries[selected.value].Summary, articleSummaries[selected.value].Article, articleSummaries[selected.value].Category, articleSummaries[selected.value].Alert);">Submit Article</button>
+</div>

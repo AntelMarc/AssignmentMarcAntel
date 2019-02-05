@@ -1,0 +1,10 @@
+
+<h2 style="color:#bf2026;font-family: verdana;">ToDo List App</h2></br>
+	<div class="list-group col-md-6">
+				<a class="list-group-item" ng-repeat="item in list track by $index">
+					<h4 class="list-group-item-heading">{{item.name}}
+						<button ng-click="deleteEntry($index);selected.value = $index;" class="btn btn-primary btn-outline btn-sm btn-rounded pull-right">Delete</button>
+						<button ng-click="editEntry($index);selected.value = $index;" class="btn btn-primary btn-outline btn-sm btn-rounded pull-right">Edit</button>
+					</h4>
+				</a>
+	</div>

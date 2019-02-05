@@ -1,0 +1,26 @@
+<!--
+Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
+-->
+<div class="login-page">
+	<div class="row">
+		<div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+			<img src="images/BME.png" style="width:260px;height:95px;" />
+			<h1 style = "font-weight: bold;">Marketing Dashboard</h1><br/><br/>
+			<h4>User login</h4>
+			<form role="form" ng-submit="submit(user)">
+				<div class="form-content">
+					<div class="form-group">
+						<input ng-model="user.email" type="text" class="form-control input-underline input-lg" id="email" placeholder="Email" />
+					</div>
+
+					<div class="form-group">
+						<input ng-model="user.pass" type="password" class="form-control input-underline input-lg" id="password" placeholder="Password" />
+					</div>
+				</div>
+				<button type="submit" class="btn btn-white btn-outline btn-lg btn-rounded">Login</button>
+				<!--<button type="button" ng-click="dirRegister()" class="btn btn-white btn-outline btn-lg btn-rounded">Sign up</button>-->
+			</form>
+		</div>
+	</div>
+
+</div>

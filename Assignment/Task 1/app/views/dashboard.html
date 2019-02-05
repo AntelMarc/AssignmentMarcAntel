@@ -1,0 +1,27 @@
+<div class="dashboard-page">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <a>
+                            <img  src="images/ToDoList.jpg" alt="BME" style="height:50px;width:auto;float:left;">
+                        </a>
+                        <li><a ui-sref="main" ng-click="pullToDoList()">ToDo List</a></li>
+                        <li><a ui-sref="addarticle">Add New Entry</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main" style="padding-top:50px" ui-view></div>
+  </div>
+</div>
